@@ -91,7 +91,7 @@ namespace SummarizeTempsLab
             }
             else
             {
-                //
+                
                 // temperature data is in temps.txt
                 //else file doesnt exist
                 //tell the user the file doesnt exist
