@@ -22,12 +22,10 @@ namespace SummarizeTempsLab
 
             {//test whether file exsists
                 Console.WriteLine("file exists");
-                Boolean cont = true;
 
-                while (cont)
-                    //if the file exists
-                    // ask the user for a temp threshold
-                    Console.WriteLine("Enter a temperature");
+                //if the file exists
+                // ask the user for a temp threshold
+                Console.WriteLine("Enter a temperature");
                 string input;
                 input = Console.ReadLine();
 
@@ -81,12 +79,13 @@ namespace SummarizeTempsLab
                     //print the average
                     Console.WriteLine("The average temp is = " + average);
 
-                    Console.WriteLine("Do you wish to continue?");
-
-
-                    input = Console.ReadLine();
-                    if (input == "no")
-                        cont = false;
+                    using(StreamWriter sw = new StreamWriter("output.txt"))
+                    {
+                        sw.WriteLine(System.DateTime.Now.ToString());
+                        sw.WriteLine("Temperatures above = " + numAbove);
+                        sw.WriteLine("Temps below = " + numBelow);
+                        sw.WriteLine("Average temp = " + average);
+                    }
                 }
 
             }
